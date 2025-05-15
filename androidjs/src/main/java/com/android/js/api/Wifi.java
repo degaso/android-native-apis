@@ -1,51 +1,61 @@
 package com.android.js.api;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
+import android.support.v4.app.ActivityCompat;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Wifi {
     private WifiManager main_wifi;
     private Activity activity;
 
-    public Wifi(Activity activity){
+    public Wifi(Activity activity) {
         this.activity = activity;
         main_wifi = (WifiManager) (this.activity.getApplicationContext().getSystemService(Context.WIFI_SERVICE));
     }
 
-    public void enableWifi(){
-        if(! this.main_wifi.isWifiEnabled())
+    public void enableWifi() {
+        if (!this.main_wifi.isWifiEnabled())
             main_wifi.setWifiEnabled(true);
     }
 
-    public void disableWifi(){
-        if(this.main_wifi.isWifiEnabled())
+    public void disableWifi() {
+        if (this.main_wifi.isWifiEnabled())
             main_wifi.setWifiEnabled(false);
     }
 
-    public void disconnectWifi(){
+    public void disconnectWifi() {
         main_wifi.disconnect();
     }
 
-    public int getWifiState(){
+    public int getWifiState() {
         return main_wifi.getWifiState();
     }
 
-    public boolean isWifiEnabled(){
+    public boolean isWifiEnabled() {
         return main_wifi.isWifiEnabled();
     }
 
     public String getWifiScanResults() throws JSONException {
 //        System.out.println("wifi api called");
-        List<ScanResult> res = main_wifi.getScanResults();
+        List<ScanResult> res;
+        if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            res = new ArrayList<>();
+        } else {
+            res = main_wifi.getScanResults();
+        }
+
         JSONArray final_res = new JSONArray();
         for(int i = 0; i < res.size(); i++) {
             JSONObject item = new JSONObject();

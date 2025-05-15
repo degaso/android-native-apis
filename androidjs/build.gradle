@@ -1,7 +1,7 @@
-apply plugin: 'com.novoda.bintray-release'
+//apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'com.android.library'
 
-publish {
+/*publish {
 
     def groupProjectID = 'com.android.js'
     def artifactProjectID = 'androidjs'
@@ -14,17 +14,15 @@ publish {
     publishVersion = publishVersionID
     desc = 'Android Native API\'s'
     website = 'https://github.com/android-js/android-native-apis'
-}
+}*/
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 34
 
 
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 33
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion 34
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -36,6 +34,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    namespace 'com.android.js'
 
 }
 

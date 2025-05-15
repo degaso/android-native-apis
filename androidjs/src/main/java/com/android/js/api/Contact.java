@@ -1,5 +1,6 @@
 package com.android.js.api;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentProviderOperation;
 
@@ -23,6 +24,7 @@ public class Contact {
         contacts = new JSONArray();
     }
 
+    @SuppressLint("Range")
     public String getAllContacts(Boolean force) throws JSONException {
         if(this.contacts.length() == 0 || force) {
             this.cursor = this.activity.getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);

@@ -45,7 +45,7 @@ public class Notification {
 //    }
 
     public void initNotification(String title, String msg){
-        PendingIntent pendingIntent = PendingIntent.getActivity(this.activity, 0, this.intent, 0);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this.activity, 0, this.intent, PendingIntent.FLAG_IMMUTABLE);
 
         this.notification_builder = new NotificationCompat.Builder(this.activity, "androidjs");
         this.notification_builder.setContentTitle(title);
