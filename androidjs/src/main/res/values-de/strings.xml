@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="intent_url_failed">Es wurde keine App gefunden, die diesen Link öffnen kann.</string>
+</resources>

@@ -25,8 +25,14 @@ public class PermissionRequest {
         for(String permission : totalPermissions) {
 
             switch (permission) {
+                case "android.permission.POST_NOTIFICATIONS":
+                    if (ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                        permissionsToBeGranted.add(Manifest.permission.POST_NOTIFICATIONS);
+                    }
+                    break;
+
                 case "android.permission.CAMERA":
-                    if (ContextCompat.checkSelfPermission(context, "Manigest") != PackageManager.PERMISSION_GRANTED) {
+                    if (ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                         permissionsToBeGranted.add(Manifest.permission.CAMERA);
                     }
                     break;

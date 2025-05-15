@@ -1,0 +1,1 @@
+/Users/fsch/Projects/android-native-apis/app/build/intermediates/cxx/RelWithDebInfo/2s14b267/obj/x86

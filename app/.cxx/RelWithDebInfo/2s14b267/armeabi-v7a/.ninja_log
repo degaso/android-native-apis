@@ -1,0 +1,13 @@
+# ninja log v5
+0	267	1747315474867746287	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	50203e377bfd1701
+268	311	1747315474912673772	../../../../build/intermediates/cxx/RelWithDebInfo/2s14b267/obj/armeabi-v7a/libnative-lib.so	82042b1d1c2eea2d
+0	4	0	clean	d5fbccba0c646c80
+1	880	1747315597368835886	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	50203e377bfd1701
+880	1133	1747315597624784583	../../../../build/intermediates/cxx/RelWithDebInfo/2s14b267/obj/armeabi-v7a/libnative-lib.so	82042b1d1c2eea2d
+0	5	0	clean	d5fbccba0c646c80
+0	616	1747315667433718171	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	50203e377bfd1701
+616	761	1747315667581461904	../../../../build/intermediates/cxx/RelWithDebInfo/2s14b267/obj/armeabi-v7a/libnative-lib.so	82042b1d1c2eea2d
+0	14	0	clean	d5fbccba0c646c80
+0	365	1747315878602629149	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	50203e377bfd1701
+365	418	1747315878659509151	../../../../build/intermediates/cxx/RelWithDebInfo/2s14b267/obj/armeabi-v7a/libnative-lib.so	82042b1d1c2eea2d
+0	9	0	clean	d5fbccba0c646c80

@@ -4,19 +4,26 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 
+import com.android.js.R;
 import com.android.js.common.JavaWebviewBridge;
 import com.android.js.other.Utils;
 
 import java.io.File;
+import java.net.URISyntaxException;
 
 
 public class AndroidJSActivity extends AppCompatActivity {
@@ -103,17 +110,69 @@ public class AndroidJSActivity extends AppCompatActivity {
             @Override
             public boolean onCreateWindow(WebView view, boolean dialog, boolean userGesture, android.os.Message resultMsg)
             {
+                if(view == null || view.getContext() == null) return false;
+                if(resultMsg == null) return false;
+
+                // Use CustomTabs to open the link when the hitTestResult is not null
                 WebView.HitTestResult result = view.getHitTestResult();
                 String data = result.getExtra();
-                Context context = view.getContext();
-                System.out.println("req:");
-                System.out.println(result.toString());
-                System.out.println(data.toString());
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(data));
-                context.startActivity(browserIntent);
-                return false;
+                if(data != null) {
+                    handleUrl(data);
+                    return false;
+                }
+
+//                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) return false;
+
+                // Use a new webViewClient to handle window.open() case
+                WebView newWebView = new WebView(view.getContext());
+                newWebView.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(
+                            WebView view,
+                            WebResourceRequest request) {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            if (request == null || request.getUrl() == null)
+                                return true;
+
+                            handleUrl(request.getUrl().toString());
+                        }
+
+                        return true;
+                    }
+                });
+
+                WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
+                transport.setWebView(newWebView);
+                resultMsg.sendToTarget();
+
+                return true;
             }
         });
+    }
+
+    private void handleUrl(String data) {
+        if(data.startsWith("intent://")) {
+            handleIntentUrl(data);
+        } else {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(data));
+            this.startActivity(browserIntent);
+        }
+    }
+
+    private void handleIntentUrl(String url) {
+        try {
+            Intent intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME);
+
+            // Checking whether an app can handle the intent would require
+            // <queries> entries, therefore just try and handle the error.
+            if (intent != null) {
+                this.startActivity(intent);
+                return;
+            }
+        } catch (Exception e) {
+            Log.w("NODEJS-MOBILE", "Could not resolve intent url \"" + url + "\":" + e);
+        }
+        Toast.makeText(this, R.string.intent_url_failed, Toast.LENGTH_LONG).show();
     }
 
 

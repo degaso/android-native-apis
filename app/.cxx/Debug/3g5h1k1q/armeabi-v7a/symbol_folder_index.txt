@@ -1,0 +1,1 @@
+/Users/fsch/Projects/android-native-apis/app/build/intermediates/cxx/Debug/3g5h1k1q/obj/armeabi-v7a

@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">androidjs</string>
+    <string name="app_name" translatable="false">androidjs</string>
+    <string name="intent_url_failed">No app found to open this link</string>
+    <string name="androidjs_vendor" translatable="false">vendor_degaso</string>
 </resources>

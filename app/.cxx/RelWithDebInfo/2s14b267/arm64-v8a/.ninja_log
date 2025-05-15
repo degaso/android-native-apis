@@ -1,0 +1,13 @@
+# ninja log v5
+0	307	1747315387555022325	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	6f7db372279fd9
+308	388	1747315387635422639	../../../../build/intermediates/cxx/RelWithDebInfo/2s14b267/obj/arm64-v8a/libnative-lib.so	89cb998de28b21bc
+0	4	0	clean	d5fbccba0c646c80
+0	617	1747315493510493194	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	6f7db372279fd9
+617	866	1747315493765155424	../../../../build/intermediates/cxx/RelWithDebInfo/2s14b267/obj/arm64-v8a/libnative-lib.so	89cb998de28b21bc
+0	5	0	clean	d5fbccba0c646c80
+1	439	1747315612970296058	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	6f7db372279fd9
+439	747	1747315613278736950	../../../../build/intermediates/cxx/RelWithDebInfo/2s14b267/obj/arm64-v8a/libnative-lib.so	89cb998de28b21bc
+0	13	0	clean	d5fbccba0c646c80
+0	410	1747315877777675226	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	6f7db372279fd9
+410	545	1747315877913555224	../../../../build/intermediates/cxx/RelWithDebInfo/2s14b267/obj/arm64-v8a/libnative-lib.so	89cb998de28b21bc
+0	8	0	clean	d5fbccba0c646c80

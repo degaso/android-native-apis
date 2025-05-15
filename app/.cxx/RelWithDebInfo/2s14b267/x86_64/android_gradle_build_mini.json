@@ -1,0 +1,29 @@
+{
+  "buildFiles": [
+    "/Users/fsch/Projects/android-native-apis/app/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/fsch/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/fsch/Projects/android-native-apis/app/.cxx/RelWithDebInfo/2s14b267/x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/fsch/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/fsch/Projects/android-native-apis/app/.cxx/RelWithDebInfo/2s14b267/x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "native-lib::@6890427a1f51a3e7e1df": {
+      "artifactName": "native-lib",
+      "abi": "x86_64",
+      "output": "/Users/fsch/Projects/android-native-apis/app/build/intermediates/cxx/RelWithDebInfo/2s14b267/obj/x86_64/libnative-lib.so",
+      "runtimeFiles": [
+        "/Users/fsch/Projects/android-native-apis/app/libnode/bin/x86_64/libnode.so"
+      ]
+    }
+  }
+}

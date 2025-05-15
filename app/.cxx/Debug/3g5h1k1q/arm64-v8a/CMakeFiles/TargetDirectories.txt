@@ -1,0 +1,3 @@
+/Users/fsch/Projects/android-native-apis/app/.cxx/Debug/3g5h1k1q/arm64-v8a/CMakeFiles/native-lib.dir
+/Users/fsch/Projects/android-native-apis/app/.cxx/Debug/3g5h1k1q/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/fsch/Projects/android-native-apis/app/.cxx/Debug/3g5h1k1q/arm64-v8a/CMakeFiles/rebuild_cache.dir
